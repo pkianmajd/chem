@@ -5,13 +5,29 @@
 	<link rel='stylesheet' type='text/css' href='css/reset.css'>
 	<link rel='stylesheet' type='text/css' href='css/style.css'>
 	<title>My Chemical Friendship</title>
+	<script type="text/javascript">
+			function typeout(id, msg, n) {
+				if (document.getElementById(id).childNodes.length == 0) {
+					document.getElementById(id).appendChild(document.createTextNode(""));
+				}
+				if (n >= msg.length)
+					return;
+				document.getElementById(id).firstChild.data += msg.charAt(n);
+				setTimeout("typeout('" + id + "', '" + msg + "', " + (n + 1) + ")", 50);
+			}
+		</script>
 </head>
-
-<body>
-<table class='pTable'>
+<body onload='typeout("typmsg", "Hello and welcome to my chemistry class! The atoms have been feeling very lonely lately. Let us find them some new friends. Click on an atom now.", 0)'>
+	<header class="teacherTalk">
+		<img src="assets/teacherSprite.png" alt="Teacher" height="200" width="200">
+		<div id="typmsgPad">
+			<div id="typmsg"></div>
+		</div>
+	</header>
+	<table class='pTable' id='pTableOverride'>
 	<!-- Period 1 -->
 	<tr class='shell1'>
-		<td id='e1'>H</td>
+		<td class='elem' id='e1'>H</td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -28,12 +44,12 @@
 		<td></td>
 		<td></td>
 		<td></td>
-		<td id='e2'>He</td>
+		<td class='elem' id='e2'>He</td>
 	</tr>
 	<!-- Period 2 -->
 	<tr>
-		<td id='e3'>Li</td>
-		<td id='e4'>Be</td>
+		<td class='elem' id='e3'>Li</td>
+		<td class='elem' id='e4'>Be</td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -44,17 +60,17 @@
 		<td></td>
 		<td></td>
 		<td></td>
-		<td id='e5'>B</td>
-		<td id='e6'>C</td>
-		<td id='e7'>N</td>
-		<td id='e8'>O</td>
-		<td id='e9'>F</td>
-		<td id='e10'>Ne</td>
+		<td class='elem' id='e5'>B</td>
+		<td class='elem' id='e6'>C</td>
+		<td class='elem' id='e7'>N</td>
+		<td class='elem' id='e8'>O</td>
+		<td class='elem' id='e9'>F</td>
+		<td class='elem' id='e10'>Ne</td>
 	</tr>
 	<!-- Period 3 -->
 	<tr>
-		<td id='e11'>Na</td>
-		<td id='e12'>Mg</td>
+		<td class='elem' id='e11'>Na</td>
+		<td class='elem' id='e12'>Mg</td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -65,84 +81,87 @@
 		<td></td>
 		<td></td>
 		<td></td>
-		<td id='e13'>Al</td>
-		<td id='e14'>Si</td>
-		<td id='e15'>P</td>
-		<td id='e16'>S</td>
-		<td id='e17'>Cl</td>
-		<td id='e18'>Ar</td>
+		<td class='elem' id='e13'>Al</td>
+		<td class='elem' id='e14'>Si</td>
+		<td class='elem' id='e15'>P</td>
+		<td class='elem' id='e16'>S</td>
+		<td class='elem' id='e17'>Cl</td>
+		<td class='elem' id='e18'>Ar</td>
 	</tr>
 	<!-- Period 4 -->
 	<tr>
-		<td id='e19'>K</td>
-		<td id='e20'>Ca</td>
-		<td id='e21' class='tm'>Sc</td>
-		<td id='e22' class='tm'>Ti</td>
-		<td id='e23' class='tm'>V</td>
-		<td id='e24' class='tm'>Cr</td>
-		<td id='e25' class='tm'>Mn</td>
-		<td id='e26' class='tm'>Fe</td>
-		<td id='e27' class='tm'>Co</td>
-		<td id='e28' class='tm'>Ni</td>
-		<td id='e29' class='tm'>Cu</td>
-		<td id='e30' class='tm'>Zn</td>
-		<td id='e31'>Ga</td>
-		<td id='e32'>Ge</td>
-		<td id='e33'>As</td>
-		<td id='e34'>Se</td>
-		<td id='e35'>Br</td>
-		<td id='e36'>Kr</td>
+		<td class='elem' id='e19'>K</td>
+		<td class='elem' id='e20'>Ca</td>
+		<td class='elem tm' id='e21' >Sc</td>
+		<td class='elem tm' id='e22' >Ti</td>
+		<td class='elem tm' id='e23' >V</td>
+		<td class='elem tm' id='e24' >Cr</td>
+		<td class='elem tm' id='e25' >Mn</td>
+		<td class='elem tm' id='e26' >Fe</td>
+		<td class='elem tm' id='e27' >Co</td>
+		<td class='elem tm' id='e28' >Ni</td>
+		<td class='elem tm' id='e29' >Cu</td>
+		<td class='elem tm' id='e30' >Zn</td>
+		<td class='elem' id='e31'>Ga</td>
+		<td class='elem' id='e32'>Ge</td>
+		<td class='elem' id='e33'>As</td>
+		<td class='elem' id='e34'>Se</td>
+		<td class='elem' id='e35'>Br</td>
+		<td class='elem' id='e36'>Kr</td>
 	</tr>
 	<tr>
-		<td id='e37'>Rb</td>
-		<td id='e38'>Sr</td>
-		<td id='e39' class='tm'>Y</td>
-		<td id='e40' class='tm'>Zr</td>
-		<td id='e41' class='tm'>Nb</td>
-		<td id='e42' class='tm'>Mo</td>
-		<td id='e43' class='tm'>Tc</td>
-		<td id='e44' class='tm'>Ru</td>
-		<td id='e45' class='tm'>Rh</td>
-		<td id='e46' class='tm'>Pd</td>
-		<td id='e47' class='tm'>Ag</td>
-		<td id='e48' class='tm'>Cd</td>
-		<td id='e49'>In</td>
-		<td id='e50'>Sn</td>
-		<td id='e51'>Sb</td>
-		<td id='e52'>Te</td>
-		<td id='e53'>I</td>
-		<td id='e54'>Xe</td>
+		<td class='elem' id='e37'>Rb</td>
+		<td class='elem' id='e38'>Sr</td>
+		<td class='elem tm' id='e39' >Y</td>
+		<td class='elem tm' id='e40' >Zr</td>
+		<td class='elem tm' id='e41' >Nb</td>
+		<td class='elem tm' id='e42' >Mo</td>
+		<td class='elem tm' id='e43' >Tc</td>
+		<td class='elem tm' id='e44' >Ru</td>
+		<td class='elem tm' id='e45' >Rh</td>
+		<td class='elem tm' id='e46' >Pd</td>
+		<td class='elem tm' id='e47' >Ag</td>
+		<td class='elem tm' id='e48' >Cd</td>
+		<td class='elem' id='e49'>In</td>
+		<td class='elem' id='e50'>Sn</td>
+		<td class='elem' id='e51'>Sb</td>
+		<td class='elem' id='e52'>Te</td>
+		<td class='elem' id='e53'>I</td>
+		<td class='elem' id='e54'>Xe</td>
 	</tr>
-		<td id='e55'>Cs</td>
-		<td id='e56'>Ba</td>
-		<td id='e57' class='tm'>La</td>
-		<td id='e72' class='tm'>Hf</td>
-		<td id='e73' class='tm'>Ta</td>
-		<td id='e74' class='tm'>W</td>
-		<td id='e75' class='tm'>Re</td>
-		<td id='e76' class='tm'>Os</td>
-		<td id='e77' class='tm'>Ir</td>
-		<td id='e78' class='tm'>Pt</td>
-		<td id='e79' class='tm'>Au</td>
-		<td id='e80' class='tm'>Hg</td>
-		<td id='e81' class='tm'>Tl</td>
-		<td id='e82' class='tm'>Pb</td>
-		<td id='e83' class='tm'>Bi</td>
-		<td id='e84' class='tm'>Po</td>
-		<td id='e85' class='tm'>At</td>
-		<td id='e86' class='tm'>Rn</td>
+		<td class='elem' id='e55'>Cs</td>
+		<td class='elem' id='e56'>Ba</td>
+		<td class='elem tm' id='e57' >La</td>
+		<td class='elem tm' id='e72' >Hf</td>
+		<td class='elem tm' id='e73' >Ta</td>
+		<td class='elem tm' id='e74' >W</td>
+		<td class='elem tm' id='e75' >Re</td>
+		<td class='elem tm' id='e76' >Os</td>
+		<td class='elem tm' id='e77' >Ir</td>
+		<td class='elem tm' id='e78' >Pt</td>
+		<td class='elem tm' id='e79' >Au</td>
+		<td class='elem tm' id='e80' >Hg</td>
+		<td class='elem tm' id='e81' >Tl</td>
+		<td class='elem tm' id='e82' >Pb</td>
+		<td class='elem tm' id='e83' >Bi</td>
+		<td class='elem tm' id='e84' >Po</td>
+		<td class='elem tm' id='e85' >At</td>
+		<td class='elem tm' id='e86' >Rn</td>
 	<tr>
-		<td id='e87' class='am'>Fr</td>
-		<td id='e88' class='em'>Ra</td>
-		<td id='e89' class='tm'>Ac</td>
-		<td id='e104' class='tm'>Rf</td>
-		<td id='e105' class='tm'>Db</td>
-		<td id='e106' class='tm'>Sg</td>
-		<td id='e107' class='tm'>Bh</td>
-		<td id='e108' class='tm'>Hs</td>
-		<td id='e109' class='tm'>Mt</td>
+		<td class='elem am' id='e87' class='am'>Fr</td>
+		<td class='elem em' id='e88' class='em'>Ra</td>
+		<td class='elem tm' id='e89' >Ac</td>
+		<td class='elem tm' id='e104' >Rf</td>
+		<td class='elem tm' id='e105' >Db</td>
+		<td class='elem tm' id='e106' >Sg</td>
+		<td class='elem tm' id='e107' >Bh</td>
+		<td class='elem tm' id='e108' >Hs</td>
+		<td class='elem tm' id='e109' >Mt</td>
 	</tr>
 </table>
+
+
+
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/main.js"></script>
 </body>

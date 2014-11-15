@@ -7,12 +7,17 @@ body {
 	background-color: #000;
 }
 
-table {
+h1 {
+	color: white;
+}
+
+.pTable {
 	margin: 15px;
 	border: 1px;
 
 }
-td {
+
+.pTable td {
 	width: 64px;
 	height: 64px;
 	border: 1px solid #000;
@@ -60,6 +65,33 @@ td {
 	background-color: #f3f;
 }
 
+header #typmsg {
+	border-radius: 15px;
+	background-color: #ddF;
+	padding:10px;
+	display: inline-block;
+	font-size: 25px;
+}
 
+#typmsgPad {
+	margin-left: 200px;
+}
 
+header img {
+	background-color:#ddF;
+	border-radius:50%;
+	float:left;
+}
 
+header:before, header:after {
+	content: " ";
+	display: table;
+}
+
+header:after {
+	clear: both;
+}
+
+#pTableOverride .elem:hover {
+	background-color: white;
+}
